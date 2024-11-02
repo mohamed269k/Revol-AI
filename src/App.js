@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Search, Mail, Twitter, Github, Linkedin, Menu, X } from 'lucide-react';
 
 const App = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -51,7 +52,7 @@ const App = () => {
                 className="md:hidden p-2 relative z-50"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
-                {isMobileMenuOpen : <Menu className="w-6 h-6" />}
+                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </Button>
             </div>
 
@@ -157,12 +158,13 @@ const App = () => {
               </p>
               <div className="flex space-x-4">
                 <Button variant="outline" className="p-2 hover:bg-white/20">
-                  
+                  <Twitter className="w-5 h-5" />
                 </Button>
                 <Button variant="outline" className="p-2 hover:bg-white/20">
-                  
+                  <Github className="w-5 h-5" />
                 </Button>
-                <Button variant="outline" className="p-2 hover:bg-white/20
+                <Button variant="outline" className="p-2 hover:bg-white/20">
+                  <Linkedin className="w-5 h-5" />
                 </Button>
               </div>
             </div>
