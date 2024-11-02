@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, Mail, Twitter, Github, Linkedin, Menu, X } from 'lucide-react';
+import { Mail, Twitter, Github, Linkedin, Menu, X } from 'lucide-react';
 
 const App = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
