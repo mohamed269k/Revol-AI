@@ -62,7 +62,7 @@ const App = () => {
                 <div className="bg-purple-900/95 backdrop-blur-lg rounded-lg shadow-xl p-4 border border-purple-800/50">
                   <div className="flex flex-col space-y-4">
                     <a href="netlify.com className="text-gray-200 hover:text-white transition-colors duration-200 p-2">Features</a>
-                    <a href="netlify.com className="text-gray-200 hover:text-white transition-colors duration-200 p-2">Pricing</a>
+                    <a href="netlify.com" className="text-gray-200 hover:text-white transition-colors duration-200 p-2">Pricing</a>
                     <a href="netlify.com" className="text-gray-200 hover:text-white transition-colors duration-200 p-2">About</a>
                     <Button variant="outline" className="w-full py-2">Login</Button>
                     <Button variant="primary" className="w-full py-2">Sign Up</Button>
