@@ -131,15 +131,84 @@ const App = () => {
       </header>
 
       {/* Features Section */}
-      <section className="py-32 bg-gray-50">
-        {/* Features content */}
+      <section id="features" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Why Choose Revol?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-purple-600 text-4xl mb-4">🤖</div>
+                    <h3 class="text-xl font-semibold mb-2">All Major AI Models</h3>
+                    <p class="text-gray-600">Access ChatGPT, Claude, and other leading AI models through one simple interface.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-purple-600 text-4xl mb-4">💰</div>
+                    <h3 class="text-xl font-semibold mb-2">Cost-Effective</h3>
+                    <p class="text-gray-600">Save money by accessing multiple AI services for one low monthly price.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <div class="text-purple-600 text-4xl mb-4">🚀</div>
+                    <h3 class="text-xl font-semibold mb-2">Unlimited Usage</h3>
+                    <p class="text-gray-600">No tokens, no limits. Use AI as much as you need.</p>
+                </div>
+            </div>
+        </div>
       </section>
-
-      {/* Logos Section */}
-      <section className="py-16 border-t border-gray-100">
-        {/* Logos content */}
+      {/* Pricing section */}
+      <section id="pricing" class="bg-gray-100 py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Simple, Transparent Pricing</h2>
+            <div class="max-w-md mx-auto">
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-purple-600 text-white p-6 text-center">
+                        <h3 class="text-2xl font-bold">Monthly Subscription</h3>
+                        <div class="text-5xl font-bold my-4">$6.99</div>
+                        <p class="text-gray-200">per month</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-4">
+                            <li class="flex items-center">
+                                <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Access to all major AI models
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Unlimited usage
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Priority support
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                Cancel anytime
+                            </li>
+                        </ul>
+                        <button class="w-full bg-purple-600 text-white mt-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition duration-200">
+                            Get Started Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
       </section>
-
+      {/* CTA section*/}
+      <section class="py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Ready to Transform Your AI Experience?</h2>
+            <p class="text-gray-600 mb-8">Join thousands of users who have already simplified their AI workflow</p>
+            <button class="bg-purple-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-purple-700 transform hover:scale-105 transition duration-200">
+                Start 7-Days Free Trial
+            </button>
+        </div>
+      </section>
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-300">
         {/* Main Footer */}
