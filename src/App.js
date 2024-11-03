@@ -185,7 +185,7 @@ const App = () => {
               <h3 className="text-white font-semibold mb-6">Company</h3>
               <ul className="space-y-4">
                 <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">About Us</a></li>
-                <li><a href="netlify.com className="text-gray-400 hover:text-white transition-colors duration-200">Careers</a></li>
+                <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Careers</a></li>
                 <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Blog</a></li>
                 <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Press</a></li>
               </ul>
