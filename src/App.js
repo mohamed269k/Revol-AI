@@ -40,9 +40,9 @@ const App = () => {
               </div>
 
               <div className="hidden md:flex items-center space-x-8">
-                <a className="text-gray-200 hover:text-white transition-colors duration-200">Features</a>
-                <a className="text-gray-200 hover:text-white transition-colors duration-200">Pricing</a>
-                <a className="text-gray-200 hover:text-white transition-colors duration-200">About</a>
+                <a href="netlify.com" className="text-gray-200 hover:text-white transition-colors duration-200">Features</a>
+                <a href="netlify.com" className="text-gray-200 hover:text-white transition-colors duration-200">Pricing</a>
+                <a href="netlify.com" className="text-gray-200 hover:text-white transition-colors duration-200">About</a>
                 <Button variant="outline" className="px-4 py-2">Login</Button>
                 <Button variant="primary" className="px-4 py-2">Sign Up</Button>
               </div>
@@ -61,9 +61,9 @@ const App = () => {
               <div className="fixed inset-x-0 top-[80px] p-4 z-40 md:hidden">
                 <div className="bg-purple-900/95 backdrop-blur-lg rounded-lg shadow-xl p-4 border border-purple-800/50">
                   <div className="flex flex-col space-y-4">
-                    <a className="text-gray-200 hover:text-white transition-colors duration-200 p-2">Features</a>
-                    <a className="text-gray-200 hover:text-white transition-colors duration-200 p-2">Pricing</a>
-                    <a className="text-gray-200 hover:text-white transition-colors duration-200 p-2">About</a>
+                    <a href="netlify.com className="text-gray-200 hover:text-white transition-colors duration-200 p-2">Features</a>
+                    <a href="netlify.com className="text-gray-200 hover:text-white transition-colors duration-200 p-2">Pricing</a>
+                    <a href="netlify.com" className="text-gray-200 hover:text-white transition-colors duration-200 p-2">About</a>
                     <Button variant="outline" className="w-full py-2">Login</Button>
                     <Button variant="primary" className="w-full py-2">Sign Up</Button>
                   </div>
@@ -173,10 +173,10 @@ const App = () => {
             <div>
               <h3 className="text-white font-semibold mb-6">Product</h3>
               <ul className="space-y-4">
-                <li><a className="text-gray-400 hover:text-white transition-colors duration-200">Features</a></li>
-                <li><a className="text-gray-400 hover:text-white transition-colors duration-200">Pricing</a></li>
-                <li><a className="text-gray-400 hover:text-white transition-colors duration-200">API</a></li>
-                <li><a className="text-gray-400 hover:text-white transition-colors duration-200">Documentation</a></li>
+                <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Features</a></li>
+                <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Pricing</a></li>
+                <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">API</a></li>
+                <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Documentation</a></li>
               </ul>
             </div>
 
@@ -184,10 +184,10 @@ const App = () => {
             <div>
               <h3 className="text-white font-semibold mb-6">Company</h3>
               <ul className="space-y-4">
-                <li><a className="text-gray-400 hover:text-white transition-colors duration-200">About Us</a></li>
-                <li><a className="text-gray-400 hover:text-white transition-colors duration-200">Careers</a></li>
-                <li><a className="text-gray-400 hover:text-white transition-colors duration-200">Blog</a></li>
-                <li><a className="text-gray-400 hover:text-white transition-colors duration-200">Press</a></li>
+                <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">About Us</a></li>
+                <li><a href="netlify.com className="text-gray-400 hover:text-white transition-colors duration-200">Careers</a></li>
+                <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Blog</a></li>
+                <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Press</a></li>
               </ul>
             </div>
 
@@ -217,9 +217,9 @@ const App = () => {
                 © 2024 Revol AI. All rights reserved.
               </div>
               <div className="flex flex-wrap justify-center md:justify-end gap-6 text-sm">
-                <a className="text-gray-400 hover:text-white transition-colors duration-200">Privacy Policy</a>
-                <a className="text-gray-400 hover:text-white transition-colors duration-200">Terms of Service</a>
-                <a className="text-gray-400 hover:text-white transition-colors duration-200">Cookie Policy</a>
+                <a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Privacy Policy</a>
+                <a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Terms of Service</a>
+                <a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Cookie Policy</a>
               </div>
             </div>
           </div>
