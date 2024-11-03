@@ -153,52 +153,18 @@ const App = () => {
             </div>
         </div>
       </section>
-      {/* Pricing section */}
-      <section id="pricing" class="bg-gray-100 py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Simple, Transparent Pricing</h2>
-            <div class="max-w-md mx-auto">
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="bg-purple-600 text-white p-6 text-center">
-                        <h3 class="text-2xl font-bold">Monthly Subscription</h3>
-                        <div class="text-5xl font-bold my-4">$6.99</div>
-                        <p class="text-gray-200">per month</p>
-                    </div>
-                    <div class="p-6">
-                        <ul class="space-y-4">
-                            <li class="flex items-center">
-                                <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Access to all major AI models
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Unlimited usage
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Priority support
-                            </li>
-                            <li class="flex items-center">
-                                <svg class="h-5 w-5 text-green-500 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                </svg>
-                                Cancel anytime
-                            </li>
-                        </ul>
-                        <button class="w-full bg-purple-600 text-white mt-6 py-3 rounded-lg font-semibold hover:bg-purple-700 transition duration-200">
-                            Get Started Now
-                        </button>
-                    </div>
-                </div>
-            </div>
+      {/* Pricing Card */}
+        <div className="bg-white rounded-2xl p-8 shadow-xl max-w-md mx-auto">
+          <div className="text-center space-y-4">
+            <h3 className="text-2xl font-bold text-purple-600">Start Now - Just $6.99/month</h3>
+            <button className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-purple-700 transition-colors duration-200">
+              View Demo →
+            </button>
+            <p className="text-sm text-gray-600">
+              No credit card required • Cancel anytime • 7-day free trial
+            </p>
+          </div>
         </div>
-      </section>
       {/* CTA section*/}
       <section class="py-20">
         <div class="container mx-auto px-6 text-center">
