@@ -1,265 +1,197 @@
-import { useState } from 'react';
-import { Mail, Twitter, Github, Linkedin, Menu, X } from 'lucide-react';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { CheckCircle, Star, Crown, ArrowRight, ChevronLeft } from 'lucide-react';
 
-const App = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+const CheckoutPage = () => {
+  const [selectedPlan, setSelectedPlan] = useState(null);
+  const [checkoutStep, setCheckoutStep] = useState('plan-selection');
 
-  const Button = ({ children, variant = 'primary', className = '', ...props }) => {
-    const baseStyles = "relative inline-flex items-center justify-center font-semibold rounded-lg text-center no-underline cursor-pointer select-none";
-    
-    const variants = {
-      primary: "bg-white text-purple-600 hover:bg-gray-100 active:bg-gray-200 shadow-lg hover:shadow-xl",
-      secondary: "bg-purple-700/30 text-white hover:bg-purple-700/40 active:bg-purple-700/50 backdrop-blur-sm",
-      outline: "bg-white/10 hover:bg-white/20 active:bg-white/30 text-white backdrop-blur-sm",
-      purple: "bg-purple-600 text-white hover:bg-purple-700 active:bg-purple-800 shadow-lg hover:shadow-xl"
-    };
-
-    return (
-      <button 
-        className={`${baseStyles} ${variants[variant]} transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 ${className}`}
-        {...props}
-      >
-        {children}
-      </button>
-    );
+  const handlePlanSelect = (plan) => {
+    setSelectedPlan(plan);
   };
 
-  return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <header className="relative overflow-hidden bg-gradient-to-br from-purple-900 to-indigo-800 pb-32">
-        {/* Navigation Bar */}
-        <div className="sticky top-0 left-0 right-0 z-50">
-          <nav className="container mx-auto px-4 py-6 relative">
-            <div className="flex justify-between items-center">
-              <div className="flex items-center space-x-2">
-                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                  <span className="text-purple-600 text-2xl font-bold">R</span>
-                </div>
-                <span className="text-2xl font-bold text-white">Revol</span>
-              </div>
+  const handleProceedToCheckout = () => {
+    setCheckoutStep('payment');
+  };
 
-              <div className="hidden md:flex items-center space-x-8">
-                <a href="netlify.com" className="text-gray-200 hover:text-white transition-colors duration-200">Features</a>
-                <a href="netlify.com" className="text-gray-200 hover:text-white transition-colors duration-200">Pricing</a>
-                <a href="netlify.com" className="text-gray-200 hover:text-white transition-colors duration-200">About</a>
-                <Button variant="outline" className="px-4 py-2">Login</Button>
-                <Button variant="primary" className="px-4 py-2">Sign Up</Button>
-              </div>
+  const handleBackToPlanSelection = () => {
+    setCheckoutStep('plan-selection');
+  };
 
-              <Button 
-                variant="outline"
-                className="md:hidden p-2 relative z-50"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </Button>
-            </div>
+  const PlanSelection = () => (
+    <>
+      <div className="text-white mb-8 text-center">
+        <h1 className="text-4xl font-bold mb-4">Choose Your Plan</h1>
+        <p className="text-xl opacity-90">Get unlimited access to cutting-edge AI models</p>
+      </div>
 
-            {/* Mobile Menu - Fixed positioning with proper z-index */}
-            {isMobileMenuOpen && (
-              <div className="fixed inset-x-0 top-[80px] p-4 z-40 md:hidden">
-                <div className="bg-purple-900/95 backdrop-blur-lg rounded-lg shadow-xl p-4 border border-purple-800/50">
-                  <div className="flex flex-col space-y-4">
-                    <a href="netlify.com" className="text-gray-200 hover:text-white transition-colors duration-200 p-2">Features</a>
-                    <a href="netlify.com" className="text-gray-200 hover:text-white transition-colors duration-200 p-2">Pricing</a>
-                    <a href="netlify.com" className="text-gray-200 hover:text-white transition-colors duration-200 p-2">About</a>
-                    <Button variant="outline" className="w-full py-2">Login</Button>
-                    <Button variant="primary" className="w-full py-2">Sign Up</Button>
-                  </div>
-                </div>
-              </div>
-            )}
-          </nav>
-        </div>
-
-        {/* Hero Content */}
-        <div className="container mx-auto px-4 pt-20 text-center">
-          <div className="inline-block mb-8 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm">
-            🚀 Experience the future of AI, all in one place
-          </div>
-
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            One Subscription.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-indigo-300">
-              All AI Models.
-            </span>
-          </h1>
-
-          <p className="text-xl text-gray-200 mb-10 max-w-2xl mx-auto">
-            Access ChatGPT, Claude, and every major AI model through a single powerful subscription. 
-            No more juggling multiple services.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-            <Button 
-              variant="primary"
-              className="w-full sm:w-auto px-8 py-4 text-lg"
-            >
-              Start Now - Just $6.99/month
-            </Button>
-            <Button 
-              variant="secondary"
-              className="w-full sm:w-auto px-8 py-4 text-lg"
-            >
-              View Demo →
-            </Button>
-          </div>
-
-          <p className="text-gray-300 text-sm">
-            No credit card required • Cancel anytime • 7-day free trial
-          </p>
-        </div>
-
-        {/* Stats */}
-        <div className="max-w-4xl mx-auto px-4 mt-16">
-          <div className="bg-white rounded-xl shadow-lg p-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-purple-600">10+</div>
-              <div className="text-gray-600">AI Models</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-purple-600">24/7</div>
-              <div className="text-gray-600">Support</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-purple-600">50k+</div>
-              <div className="text-gray-600">Active Users</div>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      {/* Features Section */}
-      <section id="features" class="py-20">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Why Choose Revol?</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <div class="text-purple-600 text-4xl mb-4">🤖</div>
-                    <h3 class="text-xl font-semibold mb-2">All Major AI Models</h3>
-                    <p class="text-gray-600">Access ChatGPT, Claude, and other leading AI models through one simple interface.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <div class="text-purple-600 text-4xl mb-4">💰</div>
-                    <h3 class="text-xl font-semibold mb-2">Cost-Effective</h3>
-                    <p class="text-gray-600">Save money by accessing multiple AI services for one low monthly price.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <div class="text-purple-600 text-4xl mb-4">🚀</div>
-                    <h3 class="text-xl font-semibold mb-2">Unlimited Usage</h3>
-                    <p class="text-gray-600">No tokens, no limits. Use AI as much as you need.</p>
-                </div>
-            </div>
-        </div>
-      </section>
-      {/* Pricing Card */}
-        <div className="bg-white rounded-2xl p-8 shadow-xl max-w-md mx-auto">
-          <div className="text-center space-y-4">
-            <h3 className="text-2xl font-bold text-purple-600">Start Now - Just $6.99/month</h3>
-            <button className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg text-lg font-semibold hover:bg-purple-700 transition-colors duration-200">
-              View Demo →
-            </button>
-            <p className="text-sm text-gray-600">
-              No credit card required • Cancel anytime • 7-day free trial
-            </p>
-          </div>
-        </div>
-      {/* CTA section*/}
-      <section class="py-20">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-4">Ready to Transform Your AI Experience?</h2>
-            <p class="text-gray-600 mb-8">Join thousands of users who have already simplified their AI workflow</p>
-            <button class="bg-purple-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-purple-700 transform hover:scale-105 transition duration-200">
-                Start 7-Days Free Trial
-            </button>
-        </div>
-      </section>
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300">
-        {/* Main Footer */}
-        <div className="container mx-auto px-4 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-            {/* Company Info */}
+      <div className="grid md:grid-cols-2 gap-6 mb-6">
+        {/* Starter Plan */}
+        <Card 
+          className={`bg-white/10 backdrop-blur-lg border-0 text-white cursor-pointer transition-transform hover:scale-105 
+            ${selectedPlan === 'starter' ? 'ring-2 ring-purple-400' : ''}`}
+          onClick={() => handlePlanSelect('starter')}
+        >
+          <CardHeader>
+            <CardTitle className="text-2xl flex items-center gap-2">
+              <Star className="text-purple-300" />
+              Starter Plan
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
             <div className="space-y-6">
-              <div className="flex items-center space-x-2">
-                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                  <span className="text-purple-600 text-2xl font-bold">R</span>
+              <div>
+                <div className="text-3xl font-bold mb-2">
+                  $6.99<span className="text-lg font-normal">/month</span>
                 </div>
-                <span className="text-2xl font-bold text-white">Revol</span>
+                <div className="text-purple-200">Perfect for individual use</div>
               </div>
-              <p className="text-gray-400">
-                Revolutionizing AI access with a unified platform for all your artificial intelligence needs.
-              </p>
-              <div className="flex space-x-4">
-                <Button variant="outline" className="p-2 hover:bg-white/20">
-                  <Twitter className="w-5 h-5" />
-                </Button>
-                <Button variant="outline" className="p-2 hover:bg-white/20">
-                  <Github className="w-5 h-5" />
-                </Button>
-                <Button variant="outline" className="p-2 hover:bg-white/20">
-                  <Linkedin className="w-5 h-5" />
-                </Button>
+
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="text-purple-300" size={20} />
+                  <span>Access to basic AI models</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="text-purple-300" size={20} />
+                  <span>100 conversations per day</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="text-purple-300" size={20} />
+                  <span>Standard support</span>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Pro Plan */}
+        <Card 
+          className={`bg-white/10 backdrop-blur-lg border-0 text-white cursor-pointer transition-transform hover:scale-105
+            ${selectedPlan === 'pro' ? 'ring-2 ring-purple-400' : ''}`}
+          onClick={() => handlePlanSelect('pro')}
+        >
+          <CardHeader>
+            <div className="absolute top-4 right-4 bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-xs font-bold px-3 py-1 rounded-full">
+              BEST VALUE
+            </div>
+            <CardTitle className="text-2xl flex items-center gap-2">
+              <Crown className="text-yellow-400" />
+              Pro Plan
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-6">
+              <div>
+                <div className="text-3xl font-bold mb-2">
+                  $24.99<span className="text-lg font-normal">/month</span>
+                </div>
+                <div className="text-purple-200">For power users & teams</div>
+              </div>
+
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="text-purple-300" size={20} />
+                  <span>Access to ALL AI models</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="text-purple-300" size={20} />
+                  <span>Unlimited conversations</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="text-purple-300" size={20} />
+                  <span>Priority 24/7 support</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="text-purple-300" size={20} />
+                  <span>Advanced features & API access</span>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="flex justify-center">
+        <Button 
+          className="bg-gradient-to-r from-purple-400 to-purple-600 hover:from-purple-500 hover:to-purple-700 text-white border-0 h-12 px-8"
+          onClick={handleProceedToCheckout}
+          disabled={!selectedPlan}
+        >
+          <span className="flex items-center gap-2">
+            Continue to Payment <ArrowRight size={20} />
+          </span>
+        </Button>
+      </div>
+    </>
+  );
+
+  const PaymentSection = () => (
+    <>
+      <Button 
+        variant="ghost" 
+        className="text-white mb-6"
+        onClick={handleBackToPlanSelection}
+      >
+        <ChevronLeft className="mr-2" /> Back to Plans
+      </Button>
+
+      <Card className="bg-white/10 backdrop-blur-lg border-0 text-white max-w-xl mx-auto">
+        <CardHeader>
+          <CardTitle className="text-2xl">Complete Your Purchase</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-6">
+            <div className="bg-purple-900/50 p-4 rounded-lg">
+              <div className="flex justify-between items-center mb-2">
+                <span>{selectedPlan === 'starter' ? 'Starter Plan' : 'Pro Plan'}</span>
+                <span className="font-bold">
+                  ${selectedPlan === 'starter' ? '6.99' : '24.99'}/month
+                </span>
+              </div>
+              <div className="text-sm text-purple-200">
+                7-day free trial • Cancel anytime
               </div>
             </div>
 
-            {/* Product */}
-            <div>
-              <h3 className="text-white font-semibold mb-6">Product</h3>
-              <ul className="space-y-4">
-                <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Features</a></li>
-                <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Pricing</a></li>
-                <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">API</a></li>
-                <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Documentation</a></li>
-              </ul>
-            </div>
+            <div className="space-y-4">
+              <input 
+                type="email" 
+                placeholder="Email Address"
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-purple-400"
+              />
 
-            {/* Company */}
-            <div>
-              <h3 className="text-white font-semibold mb-6">Company</h3>
-              <ul className="space-y-4">
-                <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">About Us</a></li>
-                <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Careers</a></li>
-                <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Blog</a></li>
-                <li><a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Press</a></li>
-              </ul>
-            </div>
+              <Button className="w-full bg-[#0070ba] hover:bg-[#003087] text-white border-0 h-12 flex items-center justify-center gap-2">
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 124 33"
+                  className="h-6 w-24"
+                  fill="currentColor"
+                >
+                  <path d="M46.211 6.749h-6.839a.95.95 0 00-.939.802l-2.766 17.537a.57.57 0 00.564.658h3.265a.95.95 0 00.939-.803l.746-4.73a.95.95 0 01.938-.803h2.165c4.505 0 7.105-2.18 7.784-6.5.306-1.89.013-3.375-.872-4.415-.972-1.142-2.696-1.746-4.985-1.746zM47 13.154c-.374 2.454-2.249 2.454-4.062 2.454h-1.032l.724-4.583a.57.57 0 01.563-.481h.473c1.235 0 2.4 0 3.002.704.359.42.469 1.044.332 1.906zm19.654-.079h-3.275a.57.57 0 00-.563.481l-.145.916-.229-.332c-.709-1.029-2.29-1.373-3.868-1.373-3.619 0-6.71 2.741-7.312 6.586-.313 1.918.132 3.752 1.22 5.031.998 1.176 2.426 1.666 4.125 1.666 2.916 0 4.533-1.875 4.533-1.875l-.146.91a.57.57 0 00.562.66h2.95a.95.95 0 00.939-.803l1.77-11.209a.568.568 0 00-.561-.658zm-4.565 6.374c-.316 1.871-1.801 3.127-3.695 3.127-.951 0-1.711-.305-2.199-.883-.484-.574-.668-1.391-.514-2.301.295-1.855 1.805-3.152 3.67-3.152.93 0 1.686.309 2.184.892.499.589.697 1.411.554 2.317zm22.007-6.374h-3.291a.954.954 0 00-.787.417l-4.539 6.686-1.924-6.425a.953.953 0 00-.912-.678h-3.234a.57.57 0 00-.541.754l3.625 10.638-3.408 4.811a.57.57 0 00.465.9h3.287a.949.949 0 00.781-.408l10.946-15.8a.57.57 0 00-.468-.895z" fill="#fff"/>
+                  <path d="M94.992 6.749h-6.84a.95.95 0 00-.938.802l-2.766 17.537a.569.569 0 00.562.658h3.51a.665.665 0 00.656-.562l.785-4.971a.95.95 0 01.938-.803h2.164c4.506 0 7.105-2.18 7.785-6.5.307-1.89.012-3.375-.873-4.415-.971-1.142-2.694-1.746-4.983-1.746zm.789 6.405c-.373 2.454-2.248 2.454-4.062 2.454h-1.031l.725-4.583a.568.568 0 01.562-.481h.473c1.234 0 2.4 0 3.002.704.359.42.468 1.044.331 1.906zm19.653-.079h-3.273a.567.567 0 00-.562.481l-.145.916-.23-.332c-.709-1.029-2.289-1.373-3.867-1.373-3.619 0-6.709 2.741-7.311 6.586-.312 1.918.131 3.752 1.219 5.031 1 1.176 2.426 1.666 4.125 1.666 2.916 0 4.533-1.875 4.533-1.875l-.146.91a.57.57 0 00.564.66h2.949a.95.95 0 00.938-.803l1.771-11.209a.571.571 0 00-.565-.658zm-4.565 6.374c-.314 1.871-1.801 3.127-3.695 3.127-.949 0-1.711-.305-2.199-.883-.484-.574-.666-1.391-.514-2.301.297-1.855 1.805-3.152 3.67-3.152.93 0 1.686.309 2.184.892.501.589.699 1.411.554 2.317zm8.426-12.219l-2.807 17.858a.57.57 0 00.562.658h2.822c.469 0 .867-.34.939-.803l2.768-17.536a.57.57 0 00-.562-.659h-3.16a.571.571 0 00-.562.482z" fill="#fff"/>
+                  <path d="M7.266 29.154l.523-3.322-1.165-.027H1.061L4.927 1.292a.316.316 0 01.314-.268h9.38c3.114 0 5.263.648 6.385 1.927.526.6.861 1.227 1.023 1.917.17.724.173 1.589.007 2.644l-.012.077v.676l.526.298a3.69 3.69 0 011.065.812c.45.513.741 1.165.864 1.938.127.795.085 1.741-.123 2.812-.24 1.232-.628 2.305-1.152 3.183a6.547 6.547 0 01-1.825 2c-.696.494-1.523.869-2.458 1.109-.906.236-1.939.355-3.072.355h-.73c-.522 0-1.029.188-1.427.525a2.21 2.21 0 00-.744 1.328l-.055.299-.924 5.855-.042.215c-.011.068-.03.102-.058.125a.155.155 0 01-.096.035H7.266z" fill="#fff"/>
+                </svg>
+                Pay with PayPal
+              </Button>
 
-            {/* Newsletter */}
-            <div>
-              <h3 className="text-white font-semibold mb-6">Stay Updated</h3>
-              <p className="text-gray-400 mb-4">Subscribe to our newsletter for AI insights and updates.</p>
-              <div className="flex space-x-2">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="bg-gray-800 text-white px-4 py-2 rounded-lg flex-grow focus:outline-none focus:ring-2 focus:ring-purple-600 transition-all duration-200"
-                />
-                <Button variant="purple" className="p-2">
-                  <Mail className="w-5 h-5" />
-                </Button>
+              <div className="text-center text-sm text-white/60">
+                By continuing, you agree to our Terms of Service
+                <br />
+                and acknowledge our Privacy Policy
               </div>
             </div>
           </div>
-        </div>
+        </CardContent>
+      </Card>
+    </>
+  );
 
-        {/* Bottom Footer */}
-        <div className="border-t border-gray-800">
-          <div className="container mx-auto px-4 py-6">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-sm text-gray-400">
-                © 2024 Revol AI. All rights reserved.
-              </div>
-              <div className="flex flex-wrap justify-center md:justify-end gap-6 text-sm">
-                <a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Privacy Policy</a>
-                <a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Terms of Service</a>
-                <a href="netlify.com" className="text-gray-400 hover:text-white transition-colors duration-200">Cookie Policy</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-purple-900 to-indigo-900 p-6">
+      <div className="max-w-5xl mx-auto">
+        {checkoutStep === 'plan-selection' ? <PlanSelection /> : <PaymentSection />}
+      </div>
     </div>
   );
 };
